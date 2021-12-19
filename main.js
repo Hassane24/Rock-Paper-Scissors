@@ -1,24 +1,26 @@
 let playOptions = ["rock", "paper", "scissors"];
-const playerSelection = prompt("Rock, Paper, or Scissors");
-function computerPlay () {
-    const random = Math.floor(Math.random() * playOptions.length);
-    console.log (playOptions[random]);
+
+function computerPlay() {
+  const random = Math.floor(Math.random() * playOptions.length);
+  return playOptions[random];
 }
-computerPlay();
 
-function playRound (playerSelection, computerPlay) { 
-    playerSelection = toLowerCase(playerSelection)
-    if (playerSelection === computerPlay) {
-        alert("Tie game!");
-    }
-    else if (
-    (computerPlay == "scissors" && playerSelection == "paper") || 
-    (computerPlay == "paper" && playerSelection == "rock") ||
-    (computerPlay == "rock" && playerSelection == "scissors")
-    )
-    {alert("You lose")}
-
-        else {alert("You win")}
-        
+function playRound(playerSelection, computerChoice) {
+  playerSelection = prompt("rock paper scissors ");
+  playerSelection = playerSelection.toLowerCase();
+  computerChoice = computerPlay();
+  console.log(playerSelection);
+  console.log(computerChoice);
+  if (playerSelection == computerChoice) {
+    alert("Tie game!");
+  } else if (
+    (computerChoice == "scissors" && playerSelection == "paper") ||
+    (computerChoice == "paper" && playerSelection == "rock") ||
+    (computerChoice == "rock" && playerSelection == "scissors")
+  ) {
+    alert("You lose");
+  } else {
+    alert("You win");
+  }
 }
 playRound();
