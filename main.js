@@ -31,11 +31,7 @@ function playRound(playerSelection, computerChoice) {
 }
 
 function game() {
-  playRound();
-  playRound();
-  playRound();
-  playRound();
-  playRound();
+
   if (
     (userScore == 3 && computerScore == 0) ||
     (userScore == 3 && computerScore == 1) ||
@@ -59,4 +55,11 @@ function game() {
   console.log("Your score :" + userScore);
   console.log("Computer score :" + computerScore);
 }
-game();
+
+
+ const btn1 = document.querySelector(".btn1");
+ const btn2 = document.querySelector(".btn2");
+ const btn3 = document.querySelector(".btn3");
+
+
+
