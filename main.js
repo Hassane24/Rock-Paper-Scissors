@@ -30,28 +30,21 @@ function playRound(playerSelection) {
   ) {
     win();
   }
-  
 }
 
 function win() {
   userScore++;
-  userScore_span.innerHTML = userScore;
+  userScore_span.textContent = userScore;
   if (userScore === 5) {
-    div_result.innerHTML = "Player WINS";
-    btn1.removeEventListener("click", win);
-    btn2.removeEventListener("click", win);
-    btn3.removeEventListener("click", win);
+    div_result.textContent = "Player WINS";
   }
 }
 
 function lose() {
   computerScore++;
-  pcScore_span.innerHTML = computerScore;
+  pcScore_span.textContent = computerScore;
   if (computerScore === 5) {
-    div_result.innerHTML = "Player LOSES";
-    btn1.removeEventListener("click", lose);
-    btn2.removeEventListener("click", lose);
-    btn3.removeEventListener("click", lose);
+    div_result.textContent = "Player LOSES";
   }
 }
 
@@ -59,12 +52,35 @@ function draw() {
   console.log("draw");
 }
 
-btn1.addEventListener("click", function () {
+btn1.addEventListener("click", rock);
+
+btn2.addEventListener("click", paper);
+
+btn3.addEventListener("click", scissors);
+
+function rock() {
   playRound("rock");
-});
-btn2.addEventListener("click", function () {
+  if (computerScore == 5 || userScore == 5) {
+    btn1.removeEventListener("click", rock);
+    btn2.removeEventListener("click", paper);
+    btn3.removeEventListener("click", scissors);
+  }
+}
+
+function paper() {
   playRound("paper");
-});
-btn3.addEventListener("click", function () {
+  if (computerScore == 5 || userScore == 5) {
+    btn1.removeEventListener("click", rock);
+    btn2.removeEventListener("click", paper);
+    btn3.removeEventListener("click", scissors);
+  }
+}
+
+function scissors() {
   playRound("scissors");
-});
+  if (computerScore == 5 || userScore == 5) {
+    btn1.removeEventListener("click", rock);
+    btn2.removeEventListener("click", paper);
+    btn3.removeEventListener("click", scissors);
+  }
+}
